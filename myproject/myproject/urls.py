@@ -21,6 +21,7 @@ from myapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
+    path('doctor_api/', views.doctor_api, name='doctor_api'),
     path("<int:id>/", views.doc_id),
     path("<str:name>/", views.doc_name),
 ]
