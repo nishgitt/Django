@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 def home(request):
     html_content = """
@@ -92,3 +94,15 @@ def doctor_api(request):
         "hospital": "City Hospital"
     }
     return JsonResponse(data)
+
+@api_view(['GET'])
+def get_student(request):
+    return Response({
+        "message":"GET Request - Student Data Retrieved Successful"
+    })
+
+@api_view(['POST'])
+def post_student(request):
+    return Response({
+        "message":"POST Request - Student Data Created Successful"
+    })
